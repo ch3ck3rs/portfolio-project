@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="en">
-{% load static %}
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -9,11 +8,13 @@
     <meta name="generator" content="Jekyll v3.8.6">
     <title>Rabbit · Life Goals</title>
 
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/album/">
+
     <!-- Bootstrap core CSS -->
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <!-- Favicons -->
-    <link rel="apple-touch-icon" href="/docs/4.4/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="apple-touch-icon" href="/docs/4.4/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
 <link rel="icon" href="/docs/4.4/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
 <link rel="icon" href="/docs/4.4/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
 <link rel="manifest" href="/docs/4.4/assets/img/favicons/manifest.json">
@@ -40,7 +41,7 @@
       }
     </style>
     <!-- Custom styles for this template -->
-    <!--<link href="album.css" rel="stylesheet">-->
+   <!-- <link href="album.css" rel="stylesheet"> -->
   </head>
   <body>
     <header>
@@ -51,9 +52,9 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="#">Goals <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="#">Goals <span class="sr-only">(current)</span></a>
       <a class="nav-item nav-link" href="#">GitHub</a>
-      <a class="nav-item nav-link" href="{% url 'allblogs' %}">Blog</a>
+      <a class="nav-item nav-link active" href="{% url 'allblogs' %}">Blog</a>
       <a class="nav-item nav-link" href="{% static 'resume-samples.pdf' %}">Resume</a>
       <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">LinkedIn</a>
     </div>
@@ -62,40 +63,25 @@
     </header>
 
 <main role="main">
-
-  <section class="jumbotron text-center">
     <div class="container">
-      <h1 class="jumbotron-heading">Hi, I'm Rabbit!</h1>
-      <p class="lead text-muted">My momma calls me Lauren if you prefer something square</p>
-      <p>
-        <a href="#" class="btn btn-primary my-2">Main call to action</a>
-        <a href="#" class="btn btn-secondary my-2">Secondary action</a>
-        <a href="mailto:lvcoffman@gmail.com" class="btn btn-secondary my-2">Email me</a>
-      </p>
-      <img class="img-fluid" src="{% static 'rabbit.jpg' %}" />
-    </div>
-  </section>
-
-  <div class="album py-5 bg-light">
-    <div class="container">
-
-      <div class="row">
-
-        {% for job in jobs.all %}
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img class="card-img-top" src="{{job.image.url}}"/>
-            <div class="card-body">
-              <p class="card-text">{{job.summary}}</p>
-            </div>
-          </div>
+    <h1 class="text-center pt-3">Welcome to Rabbit's Blog</h1>
+    <br />
+    <br />
+    <h2>Latest Thoughts</h2>
+       <hr/>
+        {% for blog in blogs.all %}
+        <div>
+            <a href=""><h3>{{ blog.title }}</h3></a>  
+                <p>{{ blog.pup_date_pretty }}</p>
+                <br/>
+                <img class="img-fluid" src="{{blog.image.url}}" />
+                <br/>
+                <p class="card-text">{{blog.summary}}</p>
         </div>
+        <br/>
+        <hr/>
         {% endfor %}
-
-      </div>
     </div>
-  </div>
-
 </main>
 
 <footer class="text-muted">
