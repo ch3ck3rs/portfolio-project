@@ -23,7 +23,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
-          <a class="nav-item nav-link" href="{% url 'allgoals' %}">Goals</a>
+          <a class="nav-item nav-link active" href="#">Goals</a>
           <a class="nav-item nav-link" href="https://github.com/ch3ck3rs">GitHub</a>
           <a class="nav-item nav-link" href="{% url 'allblogs' %}">Blog</a>
           <a class="nav-item nav-link" href="{% static 'resume-samples.pdf' %}">Resume</a>
@@ -37,8 +37,10 @@
 
     <section class="jumbotron text-center">
       <div class="container">
-        <h1 class="jumbotron-heading">Hi, I'm Rabbit!</h1>
-        <p class="lead text-muted">My momma calls me Lauren if you prefer something square</p>
+        <h1 class="jumbotron-heading">What will you do in a year?</h1>
+          <p class="lead text-muted">Wheresoever you go, go with all your heart.</p>
+          <p class="lead text-muted">WIt does not matter how slowly you go so long as you do not stop.</p>
+          <p class="lead text-muted">WOur greatest glory is not in never falling, but in rising every time we fall.</p>
         <p>
           <a href="#" class="btn btn-primary my-2">Main call to action</a>
           <a href="#" class="btn btn-secondary my-2">Secondary action</a>
@@ -53,12 +55,12 @@
 
         <div class="row">
 
-          {% for job in jobs.all %}
+          {% for goal in goals.all %}
           <div class="col-md-4">
             <div class="card mb-4 shadow-sm">
-              <img class="card-img-top" src="{{job.image.url}}"/>
+              <img class="card-img-top" src="{{goal.image.url}}"/>
               <div class="card-body">
-                <p class="card-text">{{job.summary}}</p>
+                <a href="{% url 'goal_detail' goal.id  %}"><p class="card-text">{{goal.title}}</p></a>
               </div>
             </div>
           </div>

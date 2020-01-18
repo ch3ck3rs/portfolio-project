@@ -1,4 +1,4 @@
-<!doctype html>
+{{ blog.title }}<!doctype html>
 <html lang="en">
 {% load static %}
 <head>
@@ -7,7 +7,9 @@
   <meta name="description" content="">
   <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
   <meta name="generator" content="Jekyll v3.8.6">
-  <title>Rabbit · Life Goals</title>
+  <title>Rabbit · {{goal.title}}</title>
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/album/">
 
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -23,9 +25,9 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
-          <a class="nav-item nav-link" href="{% url 'allgoals' %}">Goals</a>
+          <a class="nav-item nav-link" href="#">Goals</a>
           <a class="nav-item nav-link" href="https://github.com/ch3ck3rs">GitHub</a>
-          <a class="nav-item nav-link" href="{% url 'allblogs' %}">Blog</a>
+          <a class="nav-item nav-link active" href="{% url 'allblogs' %}">Blog</a>
           <a class="nav-item nav-link" href="{% static 'resume-samples.pdf' %}">Resume</a>
           <a class="nav-item nav-link" href="https://www.linkedin.com/in/laurencoffman" tabindex="-1" aria-disabled="true">LinkedIn</a>
         </div>
@@ -34,40 +36,18 @@
   </header>
 
   <main role="main">
+    <div class="container">
+      <h1 class="text-center pt-3">{{ goal.title }}</h1>
+      <p class="text-center">{{ goal.set_date_pretty }} ⟿ {{ goal.target_date_pretty }}</p>
+      <div class="text-center">
+        <img class="center-block" src="{{goal.image.url}}" /></div>
+        <br />
 
-    <section class="jumbotron text-center">
-      <div class="container">
-        <h1 class="jumbotron-heading">Hi, I'm Rabbit!</h1>
-        <p class="lead text-muted">My momma calls me Lauren if you prefer something square</p>
-        <p>
-          <a href="#" class="btn btn-primary my-2">Main call to action</a>
-          <a href="#" class="btn btn-secondary my-2">Secondary action</a>
-          <a href="mailto:lvcoffman@gmail.com" class="btn btn-secondary my-2">Email me</a>
-        </p>
-        <img class="img-fluid" src="{% static 'rabbit.jpg' %}" />
-      </div>
-    </section>
-
-    <div class="album py-5 bg-light">
-      <div class="container">
-
-        <div class="row">
-
-          {% for job in jobs.all %}
-          <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-              <img class="card-img-top" src="{{job.image.url}}"/>
-              <div class="card-body">
-                <p class="card-text">{{job.summary}}</p>
-              </div>
-            </div>
-          </div>
-          {% endfor %}
-
-        </div>
+        <hr/><br/>
+        <p>{{goal.body}}</p>
+        <hr/>
       </div>
     </div>
-
   </main>
 
   <footer class="text-muted">
