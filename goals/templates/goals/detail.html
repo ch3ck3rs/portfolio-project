@@ -1,6 +1,7 @@
 {{ blog.title }}<!doctype html>
 <html lang="en">
 {% load static %}
+{% load markdown_extras %}
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -44,7 +45,7 @@
         <br />
 
         <hr/><br/>
-        <p>{{goal.body}}</p>
+        <p>{{ goal.body | markdown | safe }}</p>
         <hr/>
       </div>
     </div>
