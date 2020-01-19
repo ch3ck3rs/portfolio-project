@@ -7,8 +7,8 @@
 
 ## Current Work
 
-- explore blog templates
-- allow for markdown text
+- explore blog templates - [word press theme for blog](https://colorlib.com/wp/template/suppablog/)
+- allow for markdown text [ old but promising ](https://www.imzjy.com/blog/2018-05-20-render-the-markdown-in-django) 
 
 
 ## To Keep In Mind
