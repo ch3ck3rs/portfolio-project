@@ -7,7 +7,7 @@ from django.db import models
 class Goal(models.Model):
     title = models.CharField(max_length=100)
     set_date = models.DateField()
-    target_date = models.DateField(blank=True, null=True, default='')
+    target_date = models.DateField(blank=True, null=True, default='2020-12-3')
     finished_date = models.DateField(blank=True, null=True, default='2020-12-31')
     image = models.ImageField(upload_to='goals/')
     # tldr = models.CharField(max_length=200)

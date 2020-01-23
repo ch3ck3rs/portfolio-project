@@ -22,13 +22,15 @@ from rest_framework import routers
 from quickstart import views as quickstart_views
 from jobs import views as jobs_views
 from blog import views as blog_views
+from goals import views as goals_views
 
 
 router = routers.DefaultRouter()
 router.register(r'users', quickstart_views.UserViewSet)
 router.register(r'groups', quickstart_views.GroupViewSet)
-router.register(r'jobs', jobs_views.JobViewSet)
-# router.register(r'blogs', blog_views.BlogViewSet)
+router.register(r'jobs-api', jobs_views.JobViewSet)
+router.register(r'blogs-api', blog_views.BlogViewSet)
+router.register(r'goals-api', goals_views.GoalViewSet)
 
 
 urlpatterns = [
