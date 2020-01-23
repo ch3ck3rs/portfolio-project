@@ -19,12 +19,17 @@ from django.conf import settings
 from django.conf.urls.static import static
 import jobs.views
 from rest_framework import routers
-from quickstart import views
+from quickstart import views as quickstart_views
+from jobs import views as jobs_views
+from blog import views as blog_views
 
 
 router = routers.DefaultRouter()
-router.register(r'users', views.UserViewSet)
-router.register(r'groups', views.GroupViewSet)
+router.register(r'users', quickstart_views.UserViewSet)
+router.register(r'groups', quickstart_views.GroupViewSet)
+router.register(r'jobs', jobs_views.JobViewSet)
+# router.register(r'blogs', blog_views.BlogViewSet)
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
